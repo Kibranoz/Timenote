@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showingAlert:Bool = false;
+    @State var nomFichier:String = "";
     @State var timenote:timeNote = timeNote();
     @State var text:String = "";
     @State var time:String = "";
@@ -15,11 +17,14 @@ struct ContentView: View {
     @State var pauseOrPlayButton = "􀊄"
     //@State inout var test:String = "a"
     var body: some View {
-        ZStack {
+        
         VStack{
         Text("Timenote")
             .padding()
             Text(time).bold().font(.system(size: 50))
+            if (displayItem == 1){
+                timeAdjustView(displayItem: $displayItem, timenote: $timenote, hours: 0, minutes: 0, seconds: 0)
+            }
             HStack(spacing: 98.0){
                 Button(action: {
                     displayItem = 1
@@ -55,17 +60,33 @@ struct ContentView: View {
                         .font(.system(size: 40))
                 })
                 .buttonStyle(PlainButtonStyle())
-                Button(action: {}, label: {
+                Button(action: {
+                    let now = Date()
+                    
+                    self.showingAlert = true
+
+                    let formatter = DateFormatter()
+                    formatter.dateStyle = .full
+                    formatter.timeStyle = .full
+                    let datetime = formatter.string(from: now)
+                    self.nomFichier = datetime
+                    timenote.receiveText(_text: text)
+                    timenote.write(text: text, to: datetime)
+   
+                }, label: {
                     Text("􀈭")
                         .font(.system(size: 40))
-                }).buttonStyle(PlainButtonStyle())
+                }).buttonStyle(PlainButtonStyle()).alert(isPresented: $showingAlert ) {
+                    Alert(title: Text("Sauvegardé"), message: Text("Sauvegardé sous " + self.nomFichier + ".txt dans TimeNoteFiles"), dismissButton: .default(Text("Ok")))
+                    
+                }
             }
             TextEditor(text: $text)
-        }
+                .font(.system(size: 14))
             
-            if (displayItem == 1){
-                timeAdjustView(displayItem: $displayItem, timenote: $timenote, hours: 0, minutes: 0, seconds: 0)
-            }
+        
+            
+            
             
         }
         
@@ -94,14 +115,7 @@ struct timeAdjustView:View{
         }, label: {
             Text("Enregistrer")
         }).buttonStyle(LinkButtonStyle())
-        }.padding(.horizontal, 25.0).frame(minWidth: 300, idealWidth: 300, maxWidth: 300, minHeight: 100, idealHeight: 100, maxHeight: 250, alignment: .center).fixedSize(horizontal: true, vertical: true)
-        
-            .background(RoundedRectangle(cornerRadius: 2).fill(Color.white.opacity(1)))
-        
-        
-            .overlay(RoundedRectangle(cornerRadius: 27).stroke(Color.black, lineWidth: 2))
-        
-            Spacer()
+        }.padding(.horizontal, 100)
     }
 }
 struct ContentView_Previews: PreviewProvider {

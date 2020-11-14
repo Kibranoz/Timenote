@@ -46,6 +46,14 @@ class timeNote{
         }
         self.enPause = false;
     }
+    
+    func write(text: String, to fileNamed: String, folder: String = "TimenoteFiles") {
+        guard let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else { return }
+        guard let writePath = NSURL(fileURLWithPath: path).appendingPathComponent(folder) else { return }
+        try? FileManager.default.createDirectory(atPath: writePath.path, withIntermediateDirectories: true)
+        let file = writePath.appendingPathComponent(fileNamed + ".txt")
+        try? text.write(to: file, atomically: false, encoding: String.Encoding.utf8)
+    }
     func pause(){
         self.pauseBeginning = Int(NSDate().timeIntervalSince1970)
         self.enPause = true;
