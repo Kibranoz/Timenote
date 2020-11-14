@@ -13,6 +13,7 @@
 		4F76DFFA255F749600DFD733 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F76DFF9255F749600DFD733 /* Preview Assets.xcassets */; };
 		4F76E006255F749600DFD733 /* TimenoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F76E005255F749600DFD733 /* TimenoteTests.swift */; };
 		4F76E011255F749600DFD733 /* TimenoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F76E010255F749600DFD733 /* TimenoteUITests.swift */; };
+		4FD570C8255F80710038B435 /* logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD570C7255F80710038B435 /* logic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		4F76E00C255F749600DFD733 /* TimenoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimenoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F76E010255F749600DFD733 /* TimenoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimenoteUITests.swift; sourceTree = "<group>"; };
 		4F76E012255F749600DFD733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FD570C7255F80710038B435 /* logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				4F76DFF2255F749200DFD733 /* TimenoteApp.swift */,
 				4F76DFF4255F749200DFD733 /* ContentView.swift */,
+				4FD570C7255F80710038B435 /* logic.swift */,
 				4F76DFF6255F749600DFD733 /* Assets.xcassets */,
 				4F76DFFB255F749600DFD733 /* Info.plist */,
 				4F76DFFC255F749600DFD733 /* Timenote.entitlements */,
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F76DFF5255F749200DFD733 /* ContentView.swift in Sources */,
+				4FD570C8255F80710038B435 /* logic.swift in Sources */,
 				4F76DFF3255F749200DFD733 /* TimenoteApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
