@@ -15,12 +15,12 @@ struct ContentView: View {
     @State var time:String = "";
     @State var displayItem = -1;
     @State var pauseOrPlayButton = "􀊄"
+    @State var title = "";
     //@State inout var test:String = "a"
     var body: some View {
         
         VStack{
-        Text("Timenote")
-            .padding()
+            TextField("Titre", text: $title)
             Text(time).bold().font(.system(size: 50))
             if (displayItem == 1){
                 timeAdjustView(displayItem: $displayItem, timenote: $timenote, hours: 0, minutes: 0, seconds: 0)
@@ -61,17 +61,10 @@ struct ContentView: View {
                 })
                 .buttonStyle(PlainButtonStyle())
                 Button(action: {
-                    let now = Date()
-                    
                     self.showingAlert = true
-
-                    let formatter = DateFormatter()
-                    formatter.dateStyle = .full
-                    formatter.timeStyle = .full
-                    let datetime = formatter.string(from: now)
-                    self.nomFichier = datetime
+                    self.nomFichier = title
                     timenote.receiveText(_text: text)
-                    timenote.write(text: text, to: datetime)
+                    timenote.write(text: text, to: title)
    
                 }, label: {
                     Text("􀈭")
