@@ -20,10 +20,11 @@ struct ContentView: View {
     var body: some View {
         
         VStack{
+            //Text("TimeNote").padding()
             TextField("Titre", text: $title)
             Text(time).bold().font(.system(size: 50))
             if (displayItem == 1){
-                timeAdjustView(displayItem: $displayItem, timenote: $timenote, hours: 0, minutes: 0, seconds: 0)
+                timeAdjustView(displayItem: $displayItem, timenote: $timenote, hours: 0, minutes: 0, seconds: 0, pauseOrPlayButton: $pauseOrPlayButton, time: $time)
             }
             HStack(spacing: 98.0){
                 Button(action: {
@@ -92,19 +93,28 @@ struct timeAdjustView:View{
     @State var hours:Int;
     @State var minutes:Int;
     @State var seconds:Int;
-    
+    @Binding var pauseOrPlayButton:String;
+    @Binding var time:String
     var body: some View{
         VStack{
         HStack{
             TextField("HH", value: $hours, formatter: NumberFormatter())
+                
             Text(":")
             TextField("MM", value: $minutes, formatter: NumberFormatter())
             Text(":")
             TextField("SS", value: $seconds, formatter: NumberFormatter())
         }
         Button(action: {
+            pauseOrPlayButton = "􀊆"
+            timenote.play()
+
+            Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (Timer) in
+                time = timenote.getStrTime()
+            }
             timenote.adjustTime(_hours: hours, _minutes: minutes, _seconds: seconds)
             displayItem = -1;
+
         }, label: {
             Text("Enregistrer")
         }).buttonStyle(LinkButtonStyle())
