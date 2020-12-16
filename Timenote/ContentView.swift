@@ -16,6 +16,9 @@ struct ContentView: View {
     @State var displayItem = -1;
     @State var pauseOrPlayButton = "􀊄"
     @State var title = "";
+    @State var hours:Int = 0;
+    @State var minutes:Int = 0;
+    @State var seconds:Int = 0;
     //@State inout var test:String = "a"
     var body: some View {
         
@@ -24,7 +27,7 @@ struct ContentView: View {
             TextField("Titre", text: $title)
             Text(time).bold().font(.system(size: 50))
             if (displayItem == 1){
-                timeAdjustView(displayItem: $displayItem, timenote: $timenote, hours: 0, minutes: 0, seconds: 0, pauseOrPlayButton: $pauseOrPlayButton, time: $time)
+                timeAdjustView(displayItem: $displayItem, timenote: $timenote, hours: $hours, minutes: $minutes, seconds: $seconds, pauseOrPlayButton: $pauseOrPlayButton, time: $time)
             }
             HStack(spacing: 98.0){
                 Button(action: {
@@ -90,20 +93,23 @@ struct ContentView: View {
 struct timeAdjustView:View{
     @Binding var displayItem:Int;
     @Binding var timenote:timeNote;
-    @State var hours:Int;
-    @State var minutes:Int;
-    @State var seconds:Int;
+    @Binding var hours:Int;
+    @Binding var minutes:Int;
+    @Binding var seconds:Int;
+    @State var strHours = "0"
+    @State var strMinutes = "0"
+    @State var strSeconds = "0"
     @Binding var pauseOrPlayButton:String;
     @Binding var time:String
     var body: some View{
         VStack{
         HStack{
-            TextField("HH", value: $hours, formatter: NumberFormatter())
+            TextField("HH", text : $strHours)
                 
             Text(":")
-            TextField("MM", value: $minutes, formatter: NumberFormatter())
+            TextField("MM", text : $strMinutes)
             Text(":")
-            TextField("SS", value: $seconds, formatter: NumberFormatter())
+            TextField("SS", text:$strSeconds)
         }
         Button(action: {
             pauseOrPlayButton = "􀊆"
@@ -112,6 +118,9 @@ struct timeAdjustView:View{
             Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (Timer) in
                 time = timenote.getStrTime()
             }
+            hours = Int (strHours) ?? 0
+            minutes = Int (strMinutes) ?? 0
+            seconds = Int (strSeconds) ?? 0
             timenote.adjustTime(_hours: hours, _minutes: minutes, _seconds: seconds)
             displayItem = -1;
 
