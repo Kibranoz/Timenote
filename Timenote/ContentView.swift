@@ -33,7 +33,7 @@ struct ContentView: View {
                 Button(action: {
                     displayItem = 1
                 }, label: {
-                    Text("􀎀")
+                    Image(systemName: "clock.arrow.circlepath")
                         .font(.system(size: 40))
                         
                 }).buttonStyle(PlainButtonStyle())
@@ -41,7 +41,7 @@ struct ContentView: View {
                     timenote.receiveText(_text: text)
                     text = timenote.sendText()
                 }, label: {
-                    Text("􀋵")
+                    Image(systemName: "text.insert")
                         .font(.system(size: 40))
                 }).buttonStyle(PlainButtonStyle())
                 Button(action: {
