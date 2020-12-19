@@ -59,8 +59,11 @@ class timeNote{
               panel.nameFieldLabel = "Enregistrer la note sous:"
               //panel.nameFieldStringValue =
               panel.canCreateDirectories = true
+              panel.isExtensionHidden = false
+              panel.canSelectHiddenExtension = true
+              panel.allowedFileTypes = ["txt","doc","pages"]
               panel.begin { response in
-                  if response == NSApplication.ModalResponse.OK, let fileUrl = panel.url {
+                if response == NSApplication.ModalResponse.OK, let fileUrl = panel.url{
                       print(fileUrl)
                     
                     try? text.write(to:fileUrl,atomically: false,encoding: String.Encoding.utf8)
