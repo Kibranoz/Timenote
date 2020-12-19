@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showingAlert:Bool = false;
-    @State var nomFichier:String = "";
     @State var timenote:timeNote = timeNote();
     @State var text:String = "";
     @State var time:String = "";
@@ -23,8 +21,7 @@ struct ContentView: View {
     var body: some View {
         
         VStack{
-            //Text("TimeNote").padding()
-            TextField("Titre", text: $title)
+            Text("TimeNote").padding()
             Text(time).bold().font(.system(size: 50))
             if (displayItem == 1){
                 timeAdjustView(displayItem: $displayItem, timenote: $timenote, hours: $hours, minutes: $minutes, seconds: $seconds, pauseOrPlayButton: $pauseOrPlayButton, time: $time)
@@ -65,18 +62,13 @@ struct ContentView: View {
                 })
                 .buttonStyle(PlainButtonStyle())
                 Button(action: {
-                    self.showingAlert = true
-                    self.nomFichier = title
                     timenote.receiveText(_text: text)
-                    timenote.write(text: text, to: title)
+                    timenote.write(text: text)
    
                 }, label: {
                     Text("􀈭")
                         .font(.system(size: 40))
-                }).buttonStyle(PlainButtonStyle()).alert(isPresented: $showingAlert ) {
-                    Alert(title: Text("Sauvegardé"), message: Text("Sauvegardé sous " + self.nomFichier + ".txt dans TimeNoteFiles"), dismissButton: .default(Text("Ok")))
-                    
-                }
+                }).buttonStyle(PlainButtonStyle())
             }
             TextEditor(text: $text)
                 .font(.system(size: 14))
