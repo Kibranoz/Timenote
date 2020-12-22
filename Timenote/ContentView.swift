@@ -12,7 +12,7 @@ struct ContentView: View {
     @State var text:String = "";
     @State var time:String = "";
     @State var displayItem = -1;
-    @State var pauseOrPlayButton = "􀊄"
+    @State var pauseOrPlayButton = "play.fill"
     @State var title = "";
     @State var hours:Int = 0;
     @State var minutes:Int = 0;
@@ -43,11 +43,11 @@ struct ContentView: View {
                 }).buttonStyle(PlainButtonStyle())
                 Button(action: {
                     if (timenote.getSiEnPause()){
-                    pauseOrPlayButton = "􀊆"
+                    pauseOrPlayButton = "pause.fill"
                     timenote.play()
                     }
                     else {
-                        pauseOrPlayButton = "􀊄"
+                        pauseOrPlayButton = "play.fill"
                         timenote.pause()
                     }
                     Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (Timer) in
@@ -57,7 +57,7 @@ struct ContentView: View {
                     
                     
                 }, label: {
-                    Text(pauseOrPlayButton)
+                    Image(systemName: pauseOrPlayButton)
                         .font(.system(size: 40))
                 })
                 .buttonStyle(PlainButtonStyle())
@@ -66,7 +66,7 @@ struct ContentView: View {
                     timenote.write(text: text)
    
                 }, label: {
-                    Text("􀈭")
+                    Image(systemName: "archivebox")
                         .font(.system(size: 40))
                 }).buttonStyle(PlainButtonStyle())
             }
@@ -104,7 +104,7 @@ struct timeAdjustView:View{
             TextField("SS", text:$strSeconds)
         }
         Button(action: {
-            pauseOrPlayButton = "􀊆"
+            pauseOrPlayButton = "pause.fill"
             timenote.play()
 
             Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (Timer) in
