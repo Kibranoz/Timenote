@@ -48,15 +48,9 @@ class timeNote{
     }
     
     func write(text: String) {
-        /**guard let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else { return }
-        guard let writePath = NSURL(fileURLWithPath: path).appendingPathComponent(folder) else { return }
-        try? FileManager.default.createDirectory(atPath: writePath.path, withIntermediateDirectories: true)
-        let file = writePath.appendingPathComponent(fileNamed + ".txt")
-        try? text.write(to: file, atomically: false, encoding: String.Encoding.utf8)
         
-         */
         let panel = NSSavePanel()
-              panel.nameFieldLabel = "Enregistrer la note sous:"
+              panel.nameFieldLabel = NSLocalizedString("Enregistrer la note sous", comment: "sauvegarder la note sous")
               //panel.nameFieldStringValue =
               panel.canCreateDirectories = true
               panel.isExtensionHidden = false

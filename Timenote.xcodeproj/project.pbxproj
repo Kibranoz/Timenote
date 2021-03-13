@@ -215,10 +215,14 @@
 			};
 			buildConfigurationList = 4F76DFEA255F749200DFD733 /* Build configuration list for PBXProject "Timenote" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
+			developmentRegion = fr;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				es,
+				fr,
+				"zh-Hans",
+				sv,
 				Base,
 			);
 			mainGroup = 4F76DFE6255F749200DFD733;

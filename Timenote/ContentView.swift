@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     @State var timenote:timeNote = timeNote();
     @State var text:String = "";
@@ -21,7 +22,6 @@ struct ContentView: View {
     var body: some View {
         
         VStack{
-            Text("TimeNote").padding()
             Text(time).bold().font(.system(size: 50))
             if (displayItem == 1){
                 timeAdjustView(displayItem: $displayItem, timenote: $timenote, hours: $hours, minutes: $minutes, seconds: $seconds, pauseOrPlayButton: $pauseOrPlayButton, time: $time)
@@ -62,25 +62,33 @@ struct ContentView: View {
                 })
                 .buttonStyle(PlainButtonStyle())
                 Button(action: {
+
                     timenote.receiveText(_text: text)
                     timenote.write(text: text)
+                    
    
                 }, label: {
                     Image(systemName: "archivebox")
                         .font(.system(size: 40))
                 }).buttonStyle(PlainButtonStyle())
+                
+                }
             }
             TextEditor(text: $text)
                 .font(.system(size: 14))
             
-        
-            
-            
-            
+        }
+    
+    func pauseAdjust(){
+        if (timenote.getSiEnPause()){
+        pauseOrPlayButton = "pause.fill"
+        timenote.play()
         }
         
     }
-}
+        
+    }
+
 
 struct timeAdjustView:View{
     @Binding var displayItem:Int;
@@ -117,7 +125,7 @@ struct timeAdjustView:View{
             displayItem = -1;
 
         }, label: {
-            Text("Enregistrer")
+            Text(NSLocalizedString("Enregistrer", comment: "sauvegarder"))
         }).buttonStyle(LinkButtonStyle())
         }.padding(.horizontal, 100)
     }
@@ -127,3 +135,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
