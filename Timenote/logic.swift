@@ -50,7 +50,7 @@ class timeNote{
     func write(text: String) {
         
         let panel = NSSavePanel()
-              panel.nameFieldLabel = NSLocalizedString("Enregistrer la note sous", comment: "sauvegarder la note sous")
+              panel.nameFieldLabel = NSLocalizedString("save_note_as", comment: "Save note as")
               //panel.nameFieldStringValue =
               panel.canCreateDirectories = true
               panel.isExtensionHidden = false

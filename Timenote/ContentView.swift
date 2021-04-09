@@ -125,7 +125,7 @@ struct timeAdjustView:View{
             displayItem = -1;
 
         }, label: {
-            Text(NSLocalizedString("Enregistrer", comment: "sauvegarder"))
+            Text(NSLocalizedString("save", comment: "Save"))
         }).buttonStyle(LinkButtonStyle())
         }.padding(.horizontal, 100)
     }

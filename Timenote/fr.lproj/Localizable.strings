@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  Timenote
+
+  Created by Louis Couture on 2021-04-09.
+  
+*/
+"save"="Enregistrer";
+"save_note_as" = "Enregistrer la note sous";

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F673DA12620DBF700C3C639 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F673DA32620DBF700C3C639 /* Localizable.strings */; };
 		4F76DFF3255F749200DFD733 /* TimenoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F76DFF2255F749200DFD733 /* TimenoteApp.swift */; };
 		4F76DFF5255F749200DFD733 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F76DFF4255F749200DFD733 /* ContentView.swift */; };
 		4F76DFF7255F749600DFD733 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F76DFF6255F749600DFD733 /* Assets.xcassets */; };
@@ -34,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F673DA22620DBF700C3C639 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4F673DAE2620DC5800C3C639 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4F673DAF2620DCAF00C3C639 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F76DFEF255F749200DFD733 /* Timenote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timenote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F76DFF2255F749200DFD733 /* TimenoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimenoteApp.swift; sourceTree = "<group>"; };
 		4F76DFF4255F749200DFD733 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 			children = (
 				4F76DFF2255F749200DFD733 /* TimenoteApp.swift */,
 				4F76DFF4255F749200DFD733 /* ContentView.swift */,
+				4F673DA32620DBF700C3C639 /* Localizable.strings */,
 				4FD570C7255F80710038B435 /* logic.swift */,
 				4F76DFF6255F749600DFD733 /* Assets.xcassets */,
 				4F76DFFB255F749600DFD733 /* Info.plist */,
@@ -243,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F76DFFA255F749600DFD733 /* Preview Assets.xcassets in Resources */,
+				4F673DA12620DBF700C3C639 /* Localizable.strings in Resources */,
 				4F76DFF7255F749600DFD733 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +310,19 @@
 			targetProxy = 4F76E00D255F749600DFD733 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4F673DA32620DBF700C3C639 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F673DA22620DBF700C3C639 /* fr */,
+				4F673DAE2620DC5800C3C639 /* en */,
+				4F673DAF2620DCAF00C3C639 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4F76E013255F749600DFD733 /* Debug */ = {
@@ -429,7 +448,7 @@
 				CODE_SIGN_ENTITLEMENTS = Timenote/Timenote.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Timenote/Preview Content\"";
 				DEVELOPMENT_TEAM = 6XZR42KR6H;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -440,7 +459,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = lrc.Timenote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -455,7 +474,7 @@
 				CODE_SIGN_ENTITLEMENTS = Timenote/Timenote.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Timenote/Preview Content\"";
 				DEVELOPMENT_TEAM = 6XZR42KR6H;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -466,7 +485,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = lrc.Timenote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
