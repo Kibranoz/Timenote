@@ -1,4 +1,4 @@
-# Timenote
+# Timenote MacOs
 
 
 ## What is this
